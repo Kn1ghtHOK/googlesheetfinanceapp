@@ -8,7 +8,7 @@ import json
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Henry · Finance",
+    page_title="Finance",
     page_icon="◈",
     layout="centered",
     initial_sidebar_state="collapsed",
@@ -17,15 +17,15 @@ st.set_page_config(
 # ── Constants ─────────────────────────────────────────────────────────────────
 CLIENT_ID      = st.secrets["CLIENT_ID"]
 CLIENT_SECRET  = st.secrets["CLIENT_SECRET"]
-SPREADSHEET_ID = "13KhJg5ZeBYfZHr8Rw9J2ZYsjBbaHLHmfayqwHr68yR8"
-SHEET_NAME     = "Henry 2"
+SPREADSHEET_ID = st.secrets["SPREADSHEET_ID"]
+SHEET_NAME     = st.secrets["SHEET_NAME"]
 REDIRECT_URI   = "http://localhost:8501"
 SCOPES         = "https://www.googleapis.com/auth/spreadsheets.readonly"
 AUTH_URL       = "https://accounts.google.com/o/oauth2/v2/auth"
 TOKEN_URL      = "https://oauth2.googleapis.com/token"
-MN_TAX_RATE    = 0.07375
-HOURLY_RATE    = 30.00
-STORAGE_KEY    = "hf_token_v3"
+MN_TAX_RATE    = float(st.secrets["TAX_RATE"])
+HOURLY_RATE    = float(st.secrets["HOURLY_RATE"])
+STORAGE_KEY    = "pf_token_v1"
 
 # ── CSS ───────────────────────────────────────────────────────────────────────
 st.markdown("""
@@ -569,7 +569,7 @@ col_h, col_btn = st.columns([5,1])
 with col_h:
     st.markdown("""
     <div style='padding:28px 0 0'>
-        <div class='wordmark'>Henry · Personal Finance</div>
+        <div class='wordmark'>Personal Finance</div>
         <div class='page-title'>Overview</div>
     </div>""", unsafe_allow_html=True)
 with col_btn:
@@ -791,5 +791,5 @@ with c2:
     if st.button("↻  Sync Ledger", use_container_width=True):
         st.cache_data.clear()
         st.rerun()
-st.markdown('<div class="footer-text">Henry · Personal Finance · Secure Account Access</div>',
+st.markdown('<div class="footer-text">Personal Finance · Secure Account Access</div>',
             unsafe_allow_html=True)
