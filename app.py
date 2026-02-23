@@ -19,7 +19,7 @@ CLIENT_ID      = st.secrets["CLIENT_ID"]
 CLIENT_SECRET  = st.secrets["CLIENT_SECRET"]
 SPREADSHEET_ID = st.secrets["SPREADSHEET_ID"]
 SHEET_NAME     = st.secrets["SHEET_NAME"]
-REDIRECT_URI   = "http://localhost:8501"
+REDIRECT_URI   = "https://henrysfinanceapp.streamlit.app/"
 SCOPES         = "https://www.googleapis.com/auth/spreadsheets.readonly"
 AUTH_URL       = "https://accounts.google.com/o/oauth2/v2/auth"
 TOKEN_URL      = "https://oauth2.googleapis.com/token"
@@ -793,3 +793,4 @@ with c2:
         st.rerun()
 st.markdown('<div class="footer-text">Personal Finance · Secure Account Access</div>',
             unsafe_allow_html=True)
+
